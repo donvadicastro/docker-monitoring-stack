@@ -1,9 +1,14 @@
 version: "3.7"
 services:
-  application:
-    build: ./application
+  application-backend:
+    build: application-backend
     ports:
       - 8080:8080
+
+  application-frontend:
+    build: application-frontend
+    ports:
+      - 4200:80
 
   prometheus:
     image: prom/prometheus:latest
