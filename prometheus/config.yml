@@ -30,4 +30,4 @@ scrape_configs:
   scheme: http
   static_configs:
     - targets:
-        - application:8080
+        - application-backend:8080
