@@ -5,5 +5,7 @@
 * [Grafana server](http://localhost:3000/) admin/admin
 
 ```cmd
-docker compose up
+docker compose --profile all up             # run all
+docker compose --profile monitoring up      # run monitoring stack only (prometheus, grafana, node-exporter)
+docker compose --profile app up             # run applications only (fronend, backend)
 ```
