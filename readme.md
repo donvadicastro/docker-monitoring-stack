@@ -8,6 +8,7 @@
 ```cmd
 docker compose --profile all up             # run all
 docker compose --profile monitoring up      # run monitoring stack only (prometheus, grafana, node-exporter)
+docker compose --profile testing up         # run testing stack only (sonarqube and db for it)
 docker compose --profile app up             # run applications only (fronend, backend)
 ```
 
@@ -26,3 +27,15 @@ docker compose --profile monitoring up
 docker compose --profile app up
 ```
 * navigate to [client app](http://localhost:4200)
+
+### Testing stack
+* Before run docker, execute in powershell:
+```shell
+wsl -d docker-desktop
+sysctl -w vm.max_map_count=262144
+```
+* Run docker: `docker compose --profile testing up`
+* Navigate to [SonarQube portal](http://localhost:9000/) (`admin` / `admin`)
+* Create new project with key "monitoring-stack"
+* Register new key and store it in `gradle.properties`
+* Run scan: `./gradlew sonarqube`
