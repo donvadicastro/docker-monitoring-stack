@@ -3,7 +3,7 @@ name: Main Workflow
 jobs:
   sonarQubeTrigger:
     name: SonarQube Trigger
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@master
       - name: SonarQube Scan
