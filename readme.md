@@ -16,7 +16,7 @@ docker compose --profile app up             # run applications only (fronend, ba
 * run monitoring stack
 ```cmd
 docker compose --profile monitoring up
-* ```
+```
 * create Grafana API user
   * login to [Grafana](http://localhost:3000/) ("admin/admin" if default password used)
   * navigate to "Configuration" -> "API Keys" on left menu
