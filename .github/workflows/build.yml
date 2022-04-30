@@ -17,7 +17,7 @@ jobs:
         run: gradle clean assemble
 
       - name: Test
-        run: gradle :test
+        run: gradle test
 
       - name: Report
         uses: dorny/test-reporter@v1
