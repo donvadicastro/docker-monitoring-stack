@@ -1,5 +1,5 @@
 on: push
-name: Main Workflow
+name: Build and tests
 jobs:
   build:
     runs-on: ubuntu-latest
