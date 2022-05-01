@@ -4,6 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d%h%M')"
+
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -42,4 +46,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          path: application-backend/build/reports/pitest/**/index.html
+          path: application-backend/build/reports/pitest/${{ steps.date.outputs.date }}/index.html
