@@ -35,4 +35,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
-          path: '**/reports/pitest/**/'
+          path: application-backend/reports/pitest
+
+      - name: comment PR
+        uses: machine-learning-apps/pr-comment@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: application-backend/reports/pitest/**/index.html
