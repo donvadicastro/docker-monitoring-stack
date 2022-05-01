@@ -46,4 +46,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          path: application-backend/build/reports/pitest/${{ steps.date.outputs.date }}/index.html
+          path: application-backend/build/reports/pitest/**/index.html
