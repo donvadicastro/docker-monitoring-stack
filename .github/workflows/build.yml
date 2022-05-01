@@ -31,11 +31,8 @@ jobs:
           reporter: java-junit
           fail-on-error: true
 
-      - name: Report mutation tests
-        uses: dorny/test-reporter@v1
-        if: always()
+      - name: Archive mutation tests results
+        uses: actions/upload-artifact@v3
         with:
-          name: Mutation Tests
-          path: '**/reports/pitest/**/mutations.xml'
-          reporter: java-junit
-          fail-on-error: true
+          name: code-coverage-report
+          path: '**/reports/pitest/**/'
