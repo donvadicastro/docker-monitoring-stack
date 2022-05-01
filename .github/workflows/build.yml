@@ -31,6 +31,12 @@ jobs:
           reporter: java-junit
           fail-on-error: true
 
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: "**/build/test-results/test/TEST-*.xml"
+
       - name: Archive mutation tests results
         uses: actions/upload-artifact@v3
         with:
@@ -41,7 +47,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y%m%d%H%M')"
 
-      - name: comment PR
+      - name: Comment PR
         uses: machine-learning-apps/pr-comment@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
