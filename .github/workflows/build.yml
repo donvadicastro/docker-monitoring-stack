@@ -16,14 +16,26 @@ jobs:
       - name: Build
         run: gradle clean assemble
 
-      - name: Test
+      - name: Tests
         run: gradle test
 
-      - name: Report
+      - name: Mutation tests
+        run: gradle :application-backend:pitest
+
+      - name: Report unit tests
         uses: dorny/test-reporter@v1
         if: always()
         with:
           name: Gradle Tests
           path: '**/build/test-results/test/TEST-*.xml'
+          reporter: java-junit
+          fail-on-error: true
+
+      - name: Report mutation tests
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Mutation Tests
+          path: '**/reports/pitest/**/mutations.xml'
           reporter: java-junit
           fail-on-error: true
