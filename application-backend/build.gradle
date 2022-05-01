@@ -1,6 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.5'
+	id 'org.springframework.boot' version '2.6.7'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'info.solidsoft.pitest' version '1.7.4'
 	id 'java'
 }
 
@@ -22,4 +23,9 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+pitest {
+	junit5PluginVersion = '0.15'
+	outputFormats = ['XML', 'HTML', 'CSV']
 }
