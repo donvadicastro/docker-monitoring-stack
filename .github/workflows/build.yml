@@ -41,7 +41,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y%m%d%H%M')"
 
-      - name: comment PR
+      - name: Comment PR
         uses: machine-learning-apps/pr-comment@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
